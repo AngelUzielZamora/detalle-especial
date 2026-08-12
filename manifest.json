@@ -1,0 +1,9 @@
+{
+  "name": "Naye OS",
+  "short_name": "Naye OS",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#fff8fb",
+  "theme_color": "#f7dce5",
+  "description": "Un pequeño sistema hecho por Ángel para Naye."
+}

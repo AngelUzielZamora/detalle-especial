@@ -1,254 +1,80 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Para Naye 💌</title>
-  <style>
-    :root{
-      --bg1:#fff4f7;
-      --bg2:#fde7ee;
-      --paper:#fffdf8;
-      --ink:#5c3a43;
-      --accent:#d96c87;
-      --accent2:#f2a4b7;
-      --shadow:0 18px 50px rgba(130,60,80,.18);
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      min-height:100vh;
-      display:grid;
-      place-items:center;
-      overflow:hidden;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-      color:var(--ink);
-      background:
-        radial-gradient(circle at 20% 20%, rgba(255,255,255,.9) 0 8%, transparent 9%),
-        linear-gradient(145deg,var(--bg1),var(--bg2));
-    }
-    .scene{
-      width:min(92vw,520px);
-      text-align:center;
-      position:relative;
-      z-index:2;
-    }
-    h1{
-      font-size:clamp(1.55rem,5vw,2.25rem);
-      margin:0 0 .4rem;
-      font-weight:800;
-    }
-    .subtitle{
-      opacity:.75;
-      margin:0 0 1.6rem;
-    }
-    .envelope-wrap{
-      position:relative;
-      width:min(82vw,360px);
-      height:245px;
-      margin:0 auto 1.3rem;
-      perspective:1000px;
-      cursor:pointer;
-      user-select:none;
-    }
-    .envelope{
-      position:absolute;
-      inset:45px 0 0;
-      background:#f5b8c7;
-      border-radius:10px;
-      box-shadow:var(--shadow);
-      overflow:visible;
-    }
-    .envelope:before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:#efa7b9;
-      clip-path:polygon(0 0,50% 48%,100% 0,100% 100%,0 100%);
-      border-radius:10px;
-      z-index:3;
-    }
-    .flap{
-      position:absolute;
-      left:0; top:0;
-      width:100%; height:128px;
-      background:#f8c4d0;
-      clip-path:polygon(0 0,100% 0,50% 100%);
-      transform-origin:top;
-      transition:transform .8s cubic-bezier(.2,.7,.2,1);
-      z-index:5;
-      backface-visibility:hidden;
-    }
-    .letter{
-      position:absolute;
-      left:7%;
-      width:86%;
-      height:190px;
-      bottom:12px;
-      border-radius:9px;
-      background:var(--paper);
-      box-shadow:0 8px 22px rgba(100,50,70,.12);
-      padding:24px 22px;
-      text-align:left;
-      z-index:2;
-      transform:translateY(0);
-      transition:transform .9s .3s cubic-bezier(.2,.8,.2,1), height .7s .25s;
-      overflow:auto;
-      scrollbar-width:none;
-    }
-    .letter::-webkit-scrollbar{display:none}
-    .letter h2{
-      margin:0 0 12px;
-      font-family:Georgia,serif;
-      font-size:1.35rem;
-    }
-    .letter p{
-      font-family:Georgia,serif;
-      line-height:1.58;
-      margin:.45rem 0;
-      font-size:1rem;
-    }
-    .signature{
-      text-align:right;
-      margin-top:15px!important;
-      font-style:italic;
-    }
-    .open .flap{transform:rotateX(180deg); z-index:1}
-    .open .letter{
-      transform:translateY(-118px);
-      height:330px;
-      z-index:6;
-    }
-    button{
-      border:0;
-      border-radius:999px;
-      background:var(--accent);
-      color:white;
-      font-weight:750;
-      padding:12px 22px;
-      font-size:1rem;
-      cursor:pointer;
-      box-shadow:0 8px 24px rgba(217,108,135,.28);
-      transition:transform .18s ease, opacity .2s;
-    }
-    button:hover{transform:translateY(-2px)}
-    button:active{transform:translateY(0)}
-    .hint{
-      display:block;
-      margin-top:.8rem;
-      font-size:.82rem;
-      opacity:.58;
-    }
-    .heart{
-      position:fixed;
-      bottom:-30px;
-      font-size:18px;
-      pointer-events:none;
-      animation:floatUp linear forwards;
-      opacity:.7;
-      z-index:1;
-    }
-    @keyframes floatUp{
-      from{transform:translateY(0) rotate(0deg);opacity:0}
-      10%{opacity:.7}
-      to{transform:translateY(-115vh) rotate(25deg);opacity:0}
-    }
-    .spark{
-      position:fixed;
-      width:6px;height:6px;
-      border-radius:50%;
-      background:white;
-      pointer-events:none;
-      box-shadow:0 0 12px white;
-      animation:pop .8s ease-out forwards;
-      z-index:10;
-    }
-    @keyframes pop{
-      to{transform:translate(var(--x),var(--y)) scale(0);opacity:0}
-    }
-    @media (max-height:700px){
-      body{overflow:auto;padding:30px 0}
-      .open .letter{transform:translateY(-95px);height:285px}
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f7dce5">
+  <meta name="description" content="Naye OS — una pequeña colección de detalles para Naye.">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="css/app.css">
+  <title>Naye OS</title>
 </head>
 <body>
-  <main class="scene">
-    <h1>Tengo algo para ti 💌</h1>
-    <p class="subtitle">No es gran cosa… solo quería sacarte una sonrisa hoy.</p>
+  <div id="boot" class="boot-screen">
+    <div class="boot-logo">N</div>
+    <div class="boot-title">Naye OS</div>
+    <div id="bootText" class="boot-text">Inicializando sistema…</div>
+    <div class="boot-bar"><span id="bootProgress"></span></div>
+  </div>
 
-    <div class="envelope-wrap" id="envelopeWrap" aria-label="Abrir carta">
-      <div class="envelope">
-        <div class="flap"></div>
-        <article class="letter">
-          <h2>Para Naye ✨</h2>
-          <p>
-            Quería hacerte otro detallito, porque me gustó mucho saber que el anterior te hizo feliz.
-          </p>
-          <p>
-            A veces no hace falta una fecha especial para recordarle a alguien que disfrutas compartir momentos con esa persona.
-          </p>
-          <p>
-            Así que esto es simplemente eso: un pequeño “pensé en ti” convertido en unas cuantas líneas de código. 💗
-          </p>
-          <p>
-            Espero que hoy tengas un día bonito, y si ya lo estás teniendo… que esto lo haga tantito mejor.
-          </p>
-          <p class="signature">— Ángel</p>
-        </article>
-      </div>
+  <main id="os" class="os hidden" aria-hidden="true">
+    <div class="phone-shell">
+      <header class="statusbar">
+        <span id="clock">17:15</span>
+        <span class="status-icons">♡ ︱ 100%</span>
+      </header>
+
+      <section class="hero">
+        <p class="eyebrow">Naye OS · v1.0</p>
+        <h1>Hola, Naye ♡</h1>
+        <p id="greeting">Tengo unas cositas guardadas para ti.</p>
+      </section>
+
+      <section class="update-card" id="updateCard">
+        <div>
+          <span class="update-pill">NUEVO</span>
+          <strong>Naye OS 1.0 ya está disponible</strong>
+          <p>Tu propio rinconcito digital empezó hoy ✨</p>
+        </div>
+        <button id="dismissUpdate" aria-label="Cerrar actualización">×</button>
+      </section>
+
+      <section class="app-grid" aria-label="Aplicaciones">
+        <a class="app" href="apps/carta/index.html">
+          <span class="icon pink">💌</span><span>Cartita</span>
+        </a>
+        <a class="app" href="apps/expediente/index.html">
+          <span class="icon dark">🕵️</span><span>Expediente</span>
+        </a>
+        <a class="app" href="apps/nosotros/index.html">
+          <span class="icon rose">💗</span><span>N + A</span>
+        </a>
+        <a class="app" href="apps/about/index.html">
+          <span class="icon soft">⚙️</span><span>Acerca de</span>
+        </a>
+        <button class="app locked" data-name="Naye Quest">
+          <span class="icon violet">🎮</span><span>Naye Quest</span><small>Próximamente</small>
+        </button>
+        <button class="app locked" data-name="Constelación">
+          <span class="icon blue">🌌</span><span>Estrellas</span><small>Próximamente</small>
+        </button>
+        <button class="app locked" data-name="Generador de citas">
+          <span class="icon gold">🎰</span><span>Citas</span><small>Próximamente</small>
+        </button>
+        <button class="app locked" data-name="Recuerdos">
+          <span class="icon mint">📸</span><span>Recuerdos</span><small>Próximamente</small>
+        </button>
+      </section>
+
+      <footer class="dock">
+        <span>♡</span>
+        <span class="dock-text">Hecho por Ángel para Naye</span>
+        <span>♡</span>
+      </footer>
     </div>
-
-    <button id="openBtn">Ábrelo ✨</button>
-    <span class="hint">También puedes tocar el sobre.</span>
   </main>
 
-  <script>
-    const wrap = document.getElementById('envelopeWrap');
-    const btn = document.getElementById('openBtn');
-    let opened = false;
-
-    function sparkleBurst() {
-      const rect = wrap.getBoundingClientRect();
-      const cx = rect.left + rect.width / 2;
-      const cy = rect.top + rect.height / 2;
-
-      for (let i = 0; i < 22; i++) {
-        const s = document.createElement('span');
-        s.className = 'spark';
-        s.style.left = cx + 'px';
-        s.style.top = cy + 'px';
-        const angle = Math.random() * Math.PI * 2;
-        const distance = 45 + Math.random() * 110;
-        s.style.setProperty('--x', Math.cos(angle) * distance + 'px');
-        s.style.setProperty('--y', Math.sin(angle) * distance + 'px');
-        document.body.appendChild(s);
-        setTimeout(() => s.remove(), 850);
-      }
-    }
-
-    function toggleEnvelope() {
-      opened = !opened;
-      wrap.classList.toggle('open', opened);
-      btn.textContent = opened ? 'Cerrar carta 💗' : 'Ábrelo ✨';
-      if (opened) sparkleBurst();
-    }
-
-    wrap.addEventListener('click', toggleEnvelope);
-    btn.addEventListener('click', toggleEnvelope);
-
-    function makeHeart() {
-      const h = document.createElement('div');
-      h.className = 'heart';
-      h.textContent = Math.random() > .45 ? '♡' : '♥';
-      h.style.left = Math.random() * 100 + 'vw';
-      h.style.fontSize = (12 + Math.random() * 18) + 'px';
-      h.style.animationDuration = (5 + Math.random() * 5) + 's';
-      document.body.appendChild(h);
-      setTimeout(() => h.remove(), 10000);
-    }
-
-    setInterval(makeHeart, 650);
-  </script>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="js/app.js"></script>
 </body>
 </html>
