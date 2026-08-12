@@ -1,0 +1,17 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Oráculo · Naye OS</title><style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:70px 18px 30px;background:radial-gradient(circle at 50% 20%,#40306b,#160f29 65%);font-family:system-ui;color:#fff}.back{position:fixed;left:14px;top:14px;color:#fff;text-decoration:none;background:#ffffff16;padding:9px 12px;border-radius:999px}.card{width:min(92vw,520px);text-align:center}.orb{width:210px;height:210px;border-radius:50%;margin:10px auto 24px;background:radial-gradient(circle at 38% 30%,#fff,#d5b6ff 8%,#9569d8 30%,#492a80 65%,#25103e);box-shadow:0 0 70px #9b70df88,inset 0 0 30px #fff6;display:grid;place-items:center;font-size:4rem;animation:pulse 3s ease-in-out infinite}@keyframes pulse{50%{transform:scale(1.04);box-shadow:0 0 95px #b387f199,inset 0 0 30px #fff8}}h1{margin-bottom:6px}.sub{color:#cebde8}.result{min-height:150px;margin:22px 0;padding:20px;border:1px solid #ffffff24;border-radius:22px;background:#ffffff10;display:grid;place-items:center;line-height:1.6}.result strong{color:#ffe1f1}button{border:0;border-radius:999px;background:#bb8bed;color:#1f1231;font-weight:850;padding:13px 20px;cursor:pointer}</style></head><body>
+<a class="back" href="../../index.html">← Naye OS</a><main class="card"><div class="orb">🔮</div><h1>Oráculo de Naye</h1><p class="sub">Cero rigor científico. Mucha precisión sospechosa.</p><div class="result" id="r">Pregunta al universo qué te depara hoy ✨</div><button id="ask">Consultar el futuro</button></main>
+<script>
+const predictions=[
+'Veo a una persona cuyo nombre empieza con <strong>Á</strong> pensando en ti más de lo recomendable.',
+'Probabilidad de recibir un abrazo próximamente: <strong>alarmantemente alta</strong>.',
+'Tu día mejorará en cuanto recibas un mensaje sospechosamente cariñoso.',
+'El universo recomienda: <strong>una comida rica, una buena plática y cero prisas</strong>.',
+'Se aproxima un plan bonito. El oráculo se niega a revelar quién lo está planeando 👀.',
+'Hay un <strong>99.7%</strong> de probabilidad de que hoy alguien quiera sacarte una sonrisa.',
+'Tu nivel de encanto está interfiriendo con los instrumentos del oráculo. Intenta ser menos bonita.',
+'Pronóstico: risas, antojo de algo rico y una persona queriendo verte.',
+'Advertencia cósmica: podrías ser víctima de un detalle inesperado en los próximos días.',
+'El futuro dice: <strong>todavía nos faltan muchos planes por hacer</strong>.'
+];ask.onclick=()=>{r.innerHTML='Consultando líneas temporales…';setTimeout(()=>r.innerHTML=predictions[Math.floor(Math.random()*predictions.length)],650)}
+</script></body></html>

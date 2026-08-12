@@ -1,17 +1,17 @@
-# Naye OS 1.0
+# Naye OS 1.1
 
-Mini sitio estático pensado para GitHub Pages.
-
-Apps incluidas:
+Apps activas:
 - Cartita
 - Expediente
 - N + A
+- El primero (corazón reconstruido)
+- Oráculo de Naye
+- Generador de citas
+- Recuerdos
 - Acerca de
 
 Próximamente:
 - Naye Quest
 - Constelación
-- Generador de citas
-- Recuerdos
-
-Para publicar en GitHub Pages, sube el contenido de esta carpeta al repositorio y activa Pages desde la rama `main`.
+- Radio N+A
+- Cápsula del tiempo
