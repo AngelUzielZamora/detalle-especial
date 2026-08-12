@@ -1,17 +1,24 @@
-# Naye OS 1.1
+# Naye OS 2.0
 
-Apps activas:
-- Cartita
-- Expediente
-- N + A
-- El primero (corazón reconstruido)
-- Oráculo de Naye
+## Novedades
+- Pantalla de bloqueo
+- Centro de notificaciones
+- Centro de control
+- Widget de sorpresa
+- Easter egg tocando 5 veces el icono N
+- El primer corazón reconstruido
+- Oráculo
 - Generador de citas
 - Recuerdos
+- "Ábreme cuando..."
+- Archivo secreto con contraseña
+- N + A
+- Cartita
+- Expediente
 - Acerca de
 
-Próximamente:
+## Próximamente
 - Naye Quest
 - Constelación
-- Radio N+A
-- Cápsula del tiempo
+
+Pensado para GitHub Pages.

@@ -3,64 +3,103 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#f7dce5">
-  <meta name="description" content="Naye OS — un pequeño sistema hecho especialmente para Naye.">
+  <meta name="theme-color" content="#f5dbe5">
+  <meta name="description" content="Naye OS 2.0">
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="css/app.css">
-  <title>Naye OS</title>
+  <title>Naye OS 2.0</title>
 </head>
 <body>
-  <div id="boot" class="boot-screen">
-    <div class="boot-logo">N</div>
-    <div class="boot-title">Naye OS</div>
-    <div id="bootText" class="boot-text">Inicializando sistema…</div>
-    <div class="boot-bar"><span id="bootProgress"></span></div>
-  </div>
+  <div class="ambient a1"></div><div class="ambient a2"></div><div class="ambient a3"></div>
 
-  <main id="os" class="os hidden" aria-hidden="true">
-    <div class="phone-shell">
+  <section id="lockScreen" class="lock-screen">
+    <div class="lock-top">
+      <span id="lockDate">Miércoles, 12 de agosto</span>
+      <strong id="lockTime">--:--</strong>
+    </div>
+    <div class="lock-widget">
+      <div class="tiny">NAYE OS</div>
+      <h2>Hola, Naye ♡</h2>
+      <p>Tienes una actualización esperando.</p>
+    </div>
+    <div class="lock-note">
+      <span>💗</span>
+      <div><b>Notificación importante</b><small>Ángel dejó algo nuevo para ti.</small></div>
+    </div>
+    <button id="unlockBtn" class="unlock">Desliza… bueno, toca aquí ✨</button>
+  </section>
+
+  <main id="home" class="home hidden">
+    <div class="phone">
       <header class="statusbar">
-        <span id="clock">--:--</span>
-        <span class="status-icons">♡ ︱ 100%</span>
+        <span id="homeTime">--:--</span>
+        <span>♡ 5G 100%</span>
       </header>
 
-      <section class="hero">
-        <p class="eyebrow">Naye OS · v1.1</p>
-        <h1>Hola, Naye ♡</h1>
-        <p id="greeting">Tengo unas cositas guardadas para ti.</p>
-      </section>
-
-      <section class="update-card" id="updateCard">
+      <section class="welcome">
         <div>
-          <span class="update-pill">ACTUALIZACIÓN</span>
-          <strong>Naye OS 1.1 instalada ✨</strong>
-          <p>Ahora hay más cositas para descubrir.</p>
+          <span class="eyebrow">Naye OS 2.0</span>
+          <h1 id="hello">Hola, Naye ♡</h1>
+          <p id="dayMessage">Preparando el sistema...</p>
         </div>
-        <button id="dismissUpdate" aria-label="Cerrar actualización">×</button>
+        <button id="avatarBtn" class="avatar" title="No tocar... o sí">N</button>
       </section>
 
-      <section class="app-grid" aria-label="Aplicaciones">
-        <a class="app" href="apps/carta/index.html"><span class="icon pink">💌</span><span>Cartita</span></a>
-        <a class="app" href="apps/expediente/index.html"><span class="icon dark">🕵️</span><span>Expediente</span></a>
-        <a class="app" href="apps/nosotros/index.html"><span class="icon rose">💗</span><span>N + A</span></a>
-        <a class="app" href="apps/corazon/index.html"><span class="icon heart">❤️</span><span>El primero</span><small>NEW</small></a>
-
-        <a class="app" href="apps/oraculo/index.html"><span class="icon violet">🔮</span><span>Oráculo</span><small>NEW</small></a>
-        <a class="app" href="apps/citas/index.html"><span class="icon gold">🎰</span><span>Citas</span><small>NEW</small></a>
-        <a class="app" href="apps/recuerdos/index.html"><span class="icon mint">📸</span><span>Recuerdos</span><small>NEW</small></a>
-        <a class="app" href="apps/about/index.html"><span class="icon soft">⚙️</span><span>Acerca de</span></a>
-
-        <button class="app locked" data-name="Naye Quest"><span class="icon game">🎮</span><span>Naye Quest</span><small>Próximamente</small></button>
-        <button class="app locked" data-name="Constelación"><span class="icon blue">🌌</span><span>Estrellas</span><small>Próximamente</small></button>
-        <button class="app locked" data-name="Radio N+A"><span class="icon music">🎵</span><span>Radio N+A</span><small>Próximamente</small></button>
-        <button class="app locked" data-name="Cápsula del tiempo"><span class="icon time">⏳</span><span>Cápsula</span><small>Próximamente</small></button>
+      <section id="systemUpdate" class="system-update">
+        <div class="update-icon">✨</div>
+        <div>
+          <b>Actualización instalada</b>
+          <p>Naye OS 2.0 · Más apps, más secretos y menos seriedad.</p>
+        </div>
+        <button id="closeUpdate">×</button>
       </section>
 
-      <footer class="dock">
-        <span>♡</span><span class="dock-text">Hecho por Ángel para Naye</span><span>♡</span>
-      </footer>
+      <section class="widget-row">
+        <div class="widget mood">
+          <span class="label">ESTADO DEL SISTEMA</span>
+          <strong>Funcionando mejor cuando sonríes</strong>
+          <div class="meter"><span></span></div>
+        </div>
+        <button id="surpriseWidget" class="widget surprise">
+          <span class="label">SORPRESA RÁPIDA</span>
+          <strong>Presiona aquí</strong>
+          <span class="spark">✦</span>
+        </button>
+      </section>
+
+      <section class="apps">
+        <a class="app" href="apps/corazon/index.html"><span class="appicon heart">❤️</span><b>El primero</b><small>Reconstruido</small></a>
+        <a class="app" href="apps/carta/index.html"><span class="appicon pink">💌</span><b>Cartita</b><small>Para ti</small></a>
+        <a class="app" href="apps/expediente/index.html"><span class="appicon dark">🕵️</span><b>Expediente</b><small>Clasificado</small></a>
+        <a class="app" href="apps/nosotros/index.html"><span class="appicon rose">💗</span><b>N + A</b><small>Nosotros</small></a>
+
+        <a class="app" href="apps/oraculo/index.html"><span class="appicon violet">🔮</span><b>Oráculo</b><small>Muy serio</small></a>
+        <a class="app" href="apps/citas/index.html"><span class="appicon gold">🎰</span><b>Citas</b><small>Generador</small></a>
+        <a class="app" href="apps/recuerdos/index.html"><span class="appicon mint">📸</span><b>Recuerdos</b><small>En progreso</small></a>
+        <a class="app" href="apps/notas/index.html"><span class="appicon peach">📝</span><b>Notas</b><small>Ábreme cuando...</small></a>
+
+        <a class="app" href="apps/secretos/index.html"><span class="appicon secret">🔐</span><b>Secretos</b><small>Hay algo aquí</small></a>
+        <button class="app locked" data-app="Naye Quest"><span class="appicon game">🎮</span><b>Naye Quest</b><small>Bloqueada</small></button>
+        <button class="app locked" data-app="Constelación"><span class="appicon blue">🌌</span><b>Estrellas</b><small>Bloqueada</small></button>
+        <a class="app" href="apps/about/index.html"><span class="appicon soft">⚙️</span><b>Acerca de</b><small>v2.0</small></a>
+      </section>
+
+      <nav class="dock">
+        <button id="notifBtn">🔔<span>Notifs</span></button>
+        <button id="homeBtn">♡<span>Inicio</span></button>
+        <button id="controlBtn">☼<span>Control</span></button>
+      </nav>
     </div>
   </main>
+
+  <aside id="sheet" class="sheet hidden">
+    <div class="sheet-card">
+      <div class="handle"></div>
+      <h3 id="sheetTitle">Centro</h3>
+      <div id="sheetContent"></div>
+      <button id="closeSheet" class="sheet-close">Cerrar</button>
+    </div>
+  </aside>
 
   <div id="toast" class="toast"></div>
   <script src="js/app.js"></script>
