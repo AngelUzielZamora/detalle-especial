@@ -4,5 +4,6 @@
   "start_url": "./",
   "display": "standalone",
   "background_color": "#f8e7ee",
-  "theme_color": "#f5dbe5"
+  "theme_color": "#f5dbe5",
+  "description": "Naye OS 2.2"
 }

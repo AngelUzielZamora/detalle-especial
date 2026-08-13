@@ -1,24 +1,84 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="css/app.css"><title>Naye OS 2.1</title></head><body>
-<section id="lock" class="lock"><div class="time" id="lockTime">--:--</div><p id="lockDate"></p><div class="notice"><b>Naye OS 2.1</b><span>Nueva actualización instalada ✨</span></div><button id="unlock">Toca para entrar ♡</button></section>
-<main id="home" class="home hidden"><div class="phone"><header><span id="homeTime">--:--</span><span>♡ 5G 100%</span></header>
-<section class="hero"><div><small>NAYE OS 2.1</small><h1>Hola, Naye ♡</h1><p id="greet"></p></div><button id="avatar">N</button></section>
-<section class="progress"><div><small>PROGRESO</small><b id="level">Nivel 1</b></div><a href="apps/logros/index.html">Ver logros →</a><div class="bar"><span id="xpFill"></span></div><em id="xpText">0 XP</em></section>
-<section class="thought"><small>PENSAMIENTO RECIENTE</small><p id="thought">Todavía no has escrito nada en tu diario.</p><a href="apps/diario/index.html">Abrir diario</a></section>
-<section class="apps">
-<a class="app track" data-app="diario" href="apps/diario/index.html"><i>📔</i><b>Diario</b><small>Nuevo</small></a>
-<a class="app track" data-app="quest" href="apps/naye-quest/index.html"><i>🎮</i><b>Naye Quest</b><small>Nuevo</small></a>
-<a class="app track" data-app="cupones" href="apps/cupones/index.html"><i>🎟️</i><b>Cupones</b><small>Nuevo</small></a>
-<a class="app track" data-app="constelacion" href="apps/constelacion/index.html"><i>🌌</i><b>Estrellas</b><small>Nuevo</small></a>
-<a class="app track" data-app="capsula" href="apps/capsula/index.html"><i>⏳</i><b>Cápsula</b><small>Nuevo</small></a>
-<a class="app track" data-app="terminal" href="apps/terminal/index.html"><i>💻</i><b>Terminal</b><small>Nuevo</small></a>
-<a class="app track" data-app="corazon" href="apps/corazon/index.html"><i>❤️</i><b>El primero</b><small>Reconstruido</small></a>
-<a class="app track" data-app="carta" href="apps/carta/index.html"><i>💌</i><b>Cartita</b><small>Para ti</small></a>
-<a class="app track" data-app="expediente" href="apps/expediente/index.html"><i>🕵️</i><b>Expediente</b><small>Clasificado</small></a>
-<a class="app track" data-app="nosotros" href="apps/nosotros/index.html"><i>💗</i><b>N + A</b><small>Nosotros</small></a>
-<a class="app track" data-app="oraculo" href="apps/oraculo/index.html"><i>🔮</i><b>Oráculo</b><small>Muy serio</small></a>
-<a class="app track" data-app="citas" href="apps/citas/index.html"><i>🎰</i><b>Citas</b><small>Generador</small></a>
-<a class="app track" data-app="recuerdos" href="apps/recuerdos/index.html"><i>📸</i><b>Recuerdos</b><small>En progreso</small></a>
-<a class="app track" data-app="notas" href="apps/notas/index.html"><i>📝</i><b>Notas</b><small>Ábreme cuando...</small></a>
-<a class="app track" data-app="secretos" href="apps/secretos/index.html"><i>🔐</i><b>Secretos</b><small>Hay algo aquí</small></a>
-<a class="app track" data-app="about" href="apps/about/index.html"><i>⚙️</i><b>Acerca de</b><small>v2.1</small></a>
-</section></div></main><div id="toast" class="toast"></div><script src="js/app.js"></script></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f5dbe5">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="css/app.css">
+<title>Naye OS 2.2</title>
+</head>
+<body>
+<div class="ambient a1"></div><div class="ambient a2"></div><div class="ambient a3"></div>
+
+<section id="lock" class="lock">
+  <div class="lock-time" id="lockTime">--:--</div>
+  <div id="lockDate" class="lock-date">Hoy</div>
+  <div class="lock-card"><b>Naye OS 2.2</b><span>Misiones, tienda, temas, mascota y secretos nuevos ✨</span></div>
+  <button id="unlock">Entrar a Naye OS ♡</button>
+</section>
+
+<main id="home" class="home hidden">
+  <div class="phone">
+    <header class="status"><span id="homeTime">--:--</span><span>♡ 5G 100%</span></header>
+
+    <section class="hero">
+      <div><small>NAYE OS 2.2</small><h1>Hola, Naye ♡</h1><p id="greet"></p></div>
+      <button id="avatar" class="avatar">N</button>
+    </section>
+
+    <section class="pet-card">
+      <div class="pet-face" id="petFace">🐰</div>
+      <div class="pet-copy">
+        <small>MASCOTA DEL SISTEMA</small>
+        <b id="petName">Mochi</b>
+        <span id="petMood">Está feliz de verte ♡</span>
+      </div>
+      <button id="petBtn">Mimar</button>
+    </section>
+
+    <section class="grid-widgets">
+      <a class="widget" href="apps/misiones/index.html"><small>MISIONES DE HOY</small><b id="missionSummary">0/4 completadas</b><span>Gana XP y monedas →</span></a>
+      <a class="widget" href="apps/tienda/index.html"><small>TIENDA</small><b><span id="coins">0</span> 🪙</b><span>Temas y extras →</span></a>
+    </section>
+
+    <section class="progress">
+      <div class="progress-head"><div><small>PROGRESO</small><b id="level">Nivel 1</b></div><a href="apps/logros/index.html">Ver logros →</a></div>
+      <div class="bar"><span id="xpFill"></span></div><em id="xpText">0 XP</em>
+    </section>
+
+    <section class="thought">
+      <small>PENSAMIENTO RECIENTE</small>
+      <p id="thought">Todavía no has escrito nada en tu diario.</p>
+      <a href="apps/diario/index.html">Abrir diario →</a>
+    </section>
+
+    <section class="apps">
+      <a class="app track" data-app="diario" href="apps/diario/index.html"><i>📔</i><b>Diario</b><small>Local</small></a>
+      <a class="app track" data-app="quest" href="apps/naye-quest/index.html"><i>🎮</i><b>Naye Quest</b><small>Juego</small></a>
+      <a class="app track" data-app="cupones" href="apps/cupones/index.html"><i>🎟️</i><b>Cupones</b><small>N + A</small></a>
+      <a class="app track" data-app="constelacion" href="apps/constelacion/index.html"><i>🌌</i><b>Estrellas</b><small>Recuerdos</small></a>
+
+      <a class="app track" data-app="capsula" href="apps/capsula/index.html"><i>⏳</i><b>Cápsula</b><small>Tiempo</small></a>
+      <a class="app track" data-app="terminal" href="apps/terminal/index.html"><i>💻</i><b>Terminal</b><small>Ángel</small></a>
+      <a class="app track" data-app="corazon" href="apps/corazon/index.html"><i>❤️</i><b>El primero</b><small>Corazón</small></a>
+      <a class="app track" data-app="carta" href="apps/carta/index.html"><i>💌</i><b>Cartita</b><small>Para ti</small></a>
+
+      <a class="app track" data-app="expediente" href="apps/expediente/index.html"><i>🕵️</i><b>Expediente</b><small>Clasificado</small></a>
+      <a class="app track" data-app="nosotros" href="apps/nosotros/index.html"><i>💗</i><b>N + A</b><small>Nosotros</small></a>
+      <a class="app track" data-app="oraculo" href="apps/oraculo/index.html"><i>🔮</i><b>Oráculo</b><small>Serio™</small></a>
+      <a class="app track" data-app="citas" href="apps/citas/index.html"><i>🎰</i><b>Citas</b><small>Generador</small></a>
+
+      <a class="app track" data-app="recuerdos" href="apps/recuerdos/index.html"><i>📸</i><b>Recuerdos</b><small>Historia</small></a>
+      <a class="app track" data-app="notas" href="apps/notas/index.html"><i>📝</i><b>Notas</b><small>Ábreme...</small></a>
+      <a class="app track" data-app="cajas" href="apps/cajas/index.html"><i>🎁</i><b>Cajas</b><small>Secretos</small></a>
+      <a class="app track" data-app="about" href="apps/about/index.html"><i>⚙️</i><b>Acerca de</b><small>v2.2</small></a>
+    </section>
+  </div>
+</main>
+
+<div id="toast" class="toast"></div>
+<script src="js/state.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
