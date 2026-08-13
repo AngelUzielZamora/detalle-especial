@@ -4,6 +4,5 @@
   "start_url": "./",
   "display": "standalone",
   "background_color": "#f8e7ee",
-  "theme_color": "#f5dbe5",
-  "description": "Un pequeño sistema hecho especialmente para Naye."
+  "theme_color": "#f5dbe5"
 }
