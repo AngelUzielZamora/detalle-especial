@@ -11,3 +11,55 @@ body[data-theme="pixel"]{--bg1:#e9f7e3;--bg2:#d8ecff;--bg3:#fff0cf;--accent:#66a
 .grid-widgets{display:grid;grid-template-columns:1fr 1fr;gap:10px}.widget{padding:14px;border-radius:18px;background:#ffffffa5;text-decoration:none;color:#58434d;display:flex;flex-direction:column}.widget b{font-size:.88rem;margin:4px 0}.widget span{font-size:.68rem;color:#9a7f8b}
 .progress,.thought{padding:14px;border-radius:18px;background:#ffffffa5;margin:10px 0;color:#58434d}.progress-head{display:flex;justify-content:space-between}.progress b{display:block}.progress a,.thought a{color:#b26f89;text-decoration:none;font-size:.7rem;font-weight:700}.bar{height:7px;background:#eedce4;border-radius:99px;overflow:hidden;margin:9px 0 4px}.bar span{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2))}.progress em{font-size:.7rem;color:#8e7580;font-style:normal}.thought p{font-family:Georgia,serif;line-height:1.45;margin:7px 0}
 .apps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px 7px;margin-top:18px}.app{text-decoration:none;color:var(--ink);text-align:center;display:flex;flex-direction:column;align-items:center}.app i{width:58px;height:58px;border-radius:18px;background:#fff;display:grid;place-items:center;font-style:normal;font-size:1.65rem;box-shadow:0 10px 24px #63435216}.app b{font-size:.69rem;margin-top:6px}.app small{font-size:.52rem;color:var(--muted)}.toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,15px);opacity:0;background:#4f3b45;color:white;padding:10px 15px;border-radius:999px;font-size:.8rem;transition:.2s;z-index:50}.toast.show{opacity:1;transform:translate(-50%,0)}@media(max-width:380px){.app i{width:52px;height:52px}.apps{gap:15px 3px}}
+
+
+/* ===== Naye OS 2.3 · Birthday Update ===== */
+.birthday-countdown,.daily-surprise{
+  padding:14px;border-radius:19px;background:#ffffffad;border:1px solid #fff;
+  color:#58434d;box-shadow:0 8px 24px #7a536414;margin:10px 0
+}
+.birthday-countdown{display:flex;align-items:center;gap:12px}
+.birthday-symbol{width:48px;height:48px;border-radius:16px;background:linear-gradient(145deg,#ffd77b,#f19bb2);display:grid;place-items:center;font-size:1.55rem;flex:0 0 auto}
+.birthday-copy{min-width:0;flex:1}.birthday-copy small,.daily-surprise small{font-size:.6rem;letter-spacing:.14em;color:#9a7f8b}
+.birthday-copy b,.birthday-copy span{display:block}.birthday-copy b{font-size:.86rem;margin:3px 0}.birthday-copy span{font-size:.7rem;color:#947784;line-height:1.35}
+.countdown-mini{font-weight:900;font-size:.75rem;background:#fff5f7;border-radius:999px;padding:8px 9px;white-space:nowrap}
+.daily-surprise p{margin:6px 0 0;font-family:Georgia,serif;line-height:1.45}
+.birthday-app i{background:linear-gradient(145deg,#ffe6a4,#f6a0b4)!important}
+.adventure-app i{background:linear-gradient(145deg,#bee3da,#8bbfc1)!important}
+body.birthday-mode{--bg1:#fff1c9;--bg2:#f9dce9;--bg3:#dfecff;--accent:#ec8da7;--accent2:#e0ad58}
+body.birthday-mode .pet-face{position:relative}
+body.birthday-mode .pet-face::after{content:"🥳";position:absolute;font-size:1rem;transform:translate(-10px,-15px)}
+body.birthday-mode .phone{box-shadow:0 30px 90px #d7907b36}
+.confetti-piece{position:fixed;z-index:100;top:-20px;width:8px;height:14px;border-radius:2px;pointer-events:none;animation:bdayFall linear forwards}
+@keyframes bdayFall{to{transform:translateY(110vh) rotate(760deg);opacity:.85}}
+@media(max-width:380px){.birthday-countdown{gap:8px}.birthday-symbol{width:42px;height:42px}.countdown-mini{font-size:.65rem;padding:7px}}
+
+
+/* ===== Naye OS 3.0 · Girlfriend Edition (dormant until relationshipUpdate=true) ===== */
+.relationship-card{
+  display:flex;align-items:center;gap:12px;padding:14px;border-radius:20px;
+  background:linear-gradient(145deg,#fff,#fff0f6);border:1px solid #f1c9d9;
+  color:#5c3f4c;box-shadow:0 10px 30px #b85f8218;margin:10px 0
+}
+.relationship-card.hidden{display:none!important}
+.relationship-badge{
+  width:48px;height:48px;border-radius:16px;display:grid;place-items:center;
+  font-size:1.8rem;font-weight:900;color:#fff;
+  background:linear-gradient(145deg,#ee7fa2,#b586dc)
+}
+.relationship-copy{flex:1;min-width:0}.relationship-copy small{font-size:.58rem;letter-spacing:.14em;color:#a37d8d}
+.relationship-copy b,.relationship-copy span{display:block}.relationship-copy b{margin:3px 0;font-size:.87rem}
+.relationship-copy span{font-size:.68rem;color:#957481;line-height:1.35}
+.relationship-day{font-size:.68rem;font-weight:900;background:#ffe6ef;border-radius:999px;padding:8px 9px;white-space:nowrap}
+.relationship-app i{background:linear-gradient(145deg,#ffc7da,#b995e6)!important}
+body.relationship-mode{
+  --bg1:#ffe7f1;--bg2:#eee2ff;--bg3:#e0f2ed;--accent:#e6789b;--accent2:#a982d9
+}
+body.relationship-mode .phone{box-shadow:0 32px 100px #b75c8433}
+.heart-confetti{
+  position:fixed;z-index:120;top:-24px;pointer-events:none;
+  animation:heartFall linear forwards
+}
+@keyframes heartFall{
+  to{transform:translateY(112vh) rotate(540deg);opacity:.8}
+}

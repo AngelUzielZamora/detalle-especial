@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nueva etapa · Naye OS 3.0</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;padding:70px 18px 40px;background:linear-gradient(145deg,#ffe8f1,#eee4ff,#e2f3ef);font-family:system-ui;color:#59414d}
+.back{position:fixed;top:14px;left:14px;text-decoration:none;color:#765865;background:#fff9;padding:9px 12px;border-radius:999px}
+.wrap{width:min(94vw,720px);margin:auto;text-align:center}.hidden{display:none!important}
+.locked,.hero,.card,.timeline{background:#fffafcd4;border:1px solid #fff;border-radius:25px;padding:24px;box-shadow:0 18px 50px #8e5c7418}
+.symbol{font-size:4.2rem}.hero h1{font-size:2.15rem;margin:.3rem 0}.hero p{line-height:1.65}
+.status{display:inline-block;margin:9px 0;padding:8px 13px;border-radius:999px;background:#ffe2ec;color:#a14f70;font-weight:850}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:15px}.card{padding:18px}.card span{font-size:2rem}.card p{color:#917481;line-height:1.5}
+.timeline{margin-top:15px;text-align:left}.timeline .date{font-size:.68rem;letter-spacing:.12em;color:#a27e8c}.timeline h2{margin:5px 0}.timeline p{font-family:Georgia,serif;line-height:1.7}
+.counter{font-size:1.5rem;font-weight:900;color:#b45f81;margin:10px 0}
+@media(max-width:520px){.grid{grid-template-columns:1fr}}
+</style>
+</head><body>
+<a class="back" href="../../index.html">← Naye OS</a>
+<main class="wrap">
+<section id="blocked" class="locked">
+  <div class="symbol">🔒</div>
+  <h1>Actualización no disponible</h1>
+  <p>Esta etapa todavía no ha sido activada.</p>
+</section>
+
+<section id="content" class="hidden">
+  <div class="hero">
+    <div class="symbol">💞</div>
+    <span class="status">RELATIONSHIP STATUS: UPDATED</span>
+    <h1>Naye OS 3.0 ♡</h1>
+    <p>Bueno… parece que hoy sí hubo una actualización bastante importante.</p>
+    <div class="counter" id="counter">Día 1</div>
+  </div>
+
+  <section class="grid">
+    <article class="card"><span>🔓</span><h3>Nueva etapa</h3><p>Estado anterior finalizado. Una historia nueva acaba de empezar.</p></article>
+    <article class="card"><span>🏔️</span><h3>Primer recuerdo</h3><p>Esta actualización empezó en un viaje que ya tenía suficientes razones para ser especial.</p></article>
+    <article class="card"><span>💗</span><h3>Nuevo objetivo</h3><p>Seguir haciendo planes, riéndonos y acumulando recuerdos bonitos juntos.</p></article>
+    <article class="card"><span>♾️</span><h3>Roadmap</h3><p>Sin fecha de término. Con actualizaciones frecuentes, probablemente innecesarias y hechas con cariño.</p></article>
+  </section>
+
+  <section class="timeline">
+    <span class="date">21 · 08 · 2026</span>
+    <h2>Una nota para mi novia</h2>
+    <p>
+      Si estás leyendo esto es porque pasó algo que llevaba varios días esperando y que quería preguntarte yo, viéndote a los ojos, no a través de una pantalla.
+    </p>
+    <p>
+      Naye OS empezó siendo una tontería bonita para sacarte una sonrisa, pero terminó guardando pedacitos de todo lo que he disfrutado compartir contigo. Me emociona muchísimo que ahora podamos empezar a llenar también esta parte.
+    </p>
+    <p>
+      Gracias por decir que sí. ♡
+    </p>
+    <p style="text-align:right">— Ángel</p>
+  </section>
+</section>
+</main>
+
+<script src="../../js/state.js"></script>
+<script src="../../js/special-events.js"></script>
+<script>
+const cfg=window.NayeSpecial||{};
+if(cfg.relationshipUpdate===true){
+  blocked.classList.add('hidden');content.classList.remove('hidden');
+  const start=new Date(cfg.relationshipStart||'2026-08-21T00:00:00');
+  const days=Math.max(1,Math.floor((new Date()-start)/86400000)+1);
+  counter.textContent=days===1?'Día 1 ♡':'Día '+days+' ♡';
+}else{
+  content.classList.add('hidden');
+}
+</script>
+</body></html>

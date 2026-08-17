@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#f5dbe5">
 <link rel="manifest" href="manifest.json">
 <link rel="stylesheet" href="css/app.css">
-<title>Naye OS 2.2</title>
+<title>Naye OS 2.3 · Birthday Update</title>
 </head>
 <body>
 <div class="ambient a1"></div><div class="ambient a2"></div><div class="ambient a3"></div>
@@ -14,7 +14,7 @@
 <section id="lock" class="lock">
   <div class="lock-time" id="lockTime">--:--</div>
   <div id="lockDate" class="lock-date">Hoy</div>
-  <div class="lock-card"><b>Naye OS 2.2</b><span>Misiones, tienda, temas, mascota y secretos nuevos ✨</span></div>
+  <div class="lock-card"><b id="lockVersion">Naye OS 2.3</b><span id="lockSubtitle">Birthday Update instalada ✨</span></div>
   <button id="unlock">Entrar a Naye OS ♡</button>
 </section>
 
@@ -23,8 +23,35 @@
     <header class="status"><span id="homeTime">--:--</span><span>♡ 5G 100%</span></header>
 
     <section class="hero">
-      <div><small>NAYE OS 2.2</small><h1>Hola, Naye ♡</h1><p id="greet"></p></div>
+      <div><small id="osVersion">NAYE OS 2.3</small><h1 id="heroTitle">Hola, Naye ♡</h1><p id="greet"></p></div>
       <button id="avatar" class="avatar">N</button>
+    </section>
+
+
+
+    <section id="relationshipCard" class="relationship-card hidden">
+      <div class="relationship-badge">♡</div>
+      <div class="relationship-copy">
+        <small>RELATIONSHIP STATUS</small>
+        <b id="relationshipHeadline">Updated successfully ♡</b>
+        <span id="relationshipSubline">Nayeli + Ángel · Nueva etapa desbloqueada</span>
+      </div>
+      <div class="relationship-day" id="relationshipDay">Día 1</div>
+    </section>
+
+    <section id="birthdayCountdown" class="birthday-countdown">
+      <div class="birthday-symbol" id="birthdaySymbol">🎂</div>
+      <div class="birthday-copy">
+        <small id="birthdayLabel">ACTUALIZACIÓN ESPECIAL</small>
+        <b id="birthdayHeadline">Cargando contador...</b>
+        <span id="birthdayMessage">Hay algo preparado para el 21 de agosto.</span>
+      </div>
+      <div class="countdown-mini" id="birthdayMini">--</div>
+    </section>
+
+    <section id="dailySurprise" class="daily-surprise">
+      <small>MENSAJE DE HOY</small>
+      <p id="dailyMessage">Semana especial iniciada ✨</p>
     </section>
 
     <section class="pet-card">
@@ -54,6 +81,9 @@
     </section>
 
     <section class="apps">
+      <a id="relationshipApp" class="app track relationship-app hidden" data-app="relationship" href="apps/relationship/index.html"><i>💞</i><b>Nueva etapa</b><small>3.0</small></a>
+      <a class="app track birthday-app" data-app="cumple" href="apps/cumple/index.html"><i>🎂</i><b>Cumple de Naye</b><small id="birthdayAppStatus">21.08</small></a>
+      <a class="app track adventure-app" data-app="aventura" href="apps/aventura/index.html"><i>🏔️</i><b>Aventura 21.08</b><small id="adventureStatus">Bloqueada</small></a>
       <a class="app track" data-app="diario" href="apps/diario/index.html"><i>📔</i><b>Diario</b><small>Local</small></a>
       <a class="app track" data-app="quest" href="apps/naye-quest/index.html"><i>🎮</i><b>Naye Quest</b><small>Juego</small></a>
       <a class="app track" data-app="cupones" href="apps/cupones/index.html"><i>🎟️</i><b>Cupones</b><small>N + A</small></a>
@@ -72,13 +102,14 @@
       <a class="app track" data-app="recuerdos" href="apps/recuerdos/index.html"><i>📸</i><b>Recuerdos</b><small>Historia</small></a>
       <a class="app track" data-app="notas" href="apps/notas/index.html"><i>📝</i><b>Notas</b><small>Ábreme...</small></a>
       <a class="app track" data-app="cajas" href="apps/cajas/index.html"><i>🎁</i><b>Cajas</b><small>Secretos</small></a>
-      <a class="app track" data-app="about" href="apps/about/index.html"><i>⚙️</i><b>Acerca de</b><small>v2.2</small></a>
+      <a class="app track" data-app="about" href="apps/about/index.html"><i>⚙️</i><b>Acerca de</b><small>v2.3</small></a>
     </section>
   </div>
 </main>
 
 <div id="toast" class="toast"></div>
 <script src="js/state.js"></script>
+<script src="js/special-events.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

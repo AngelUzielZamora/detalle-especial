@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cumple de Naye · Naye OS</title><style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;padding:70px 18px 40px;background:linear-gradient(145deg,#fff1c9,#f9dbe8,#dfedff);font-family:system-ui;color:#59424c}.back{position:fixed;top:14px;left:14px;text-decoration:none;color:#765865;background:#fff9;padding:9px 12px;border-radius:999px}.wrap{width:min(94vw,720px);margin:auto;text-align:center}.locked,.hero,.card{background:#fffafccc;border:1px solid #fff;border-radius:24px;padding:24px;box-shadow:0 16px 45px #9c6d7a18}.cake{font-size:4.4rem}.hero h1{font-size:2.25rem;margin:.2rem 0}.hero p{line-height:1.65}.moments{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:16px}.card{padding:18px}.card span{font-size:2rem}.card p{color:#907581;line-height:1.5}.final{margin-top:16px;background:linear-gradient(145deg,#fff9,#fff0f5);padding:22px;border-radius:24px}.final p{font-family:Georgia,serif;line-height:1.7}.hidden{display:none}@media(max-width:520px){.moments{grid-template-columns:1fr}}
+</style></head><body>
+<a class="back" href="../../index.html">← Naye OS</a><main class="wrap">
+<section id="locked" class="locked"><div class="cake">🎁</div><h1>Todavía no ♡</h1><p>Esta actualización se desbloquea el 21 de agosto.</p><p id="counter"></p></section>
+<section id="content" class="hidden">
+<div class="hero"><div class="cake">🎂</div><h1>Feliz cumpleaños, Naye ♡</h1><p>No quería que hoy fuera solamente otra fecha dentro del calendario, así que Naye OS también tenía que celebrarte.</p></div>
+<section class="moments">
+<article class="card"><span>✨</span><h3>Deseo #1</h3><p>Que este nuevo año te traiga un montón de razones para sentirte orgullosa de ti.</p></article>
+<article class="card"><span>😂</span><h3>Deseo #2</h3><p>Que sigamos acumulando momentos que nos hagan reír por cosas bastante tontas.</p></article>
+<article class="card"><span>🌄</span><h3>Deseo #3</h3><p>Que tengas más aventuras, lugares nuevos y días que valga la pena recordar.</p></article>
+<article class="card"><span>💗</span><h3>Deseo #4</h3><p>Que hoy te sientas muy querida. Porque lo eres.</p></article>
+</section>
+<section class="final"><h2>Una nota del desarrollador</h2><p>Me hace muy feliz poder compartir contigo este cumpleaños. Espero que cuando recuerdes tus 25 pienses en muchas cosas bonitas, y ojalá yo tenga la suerte de estar en algunas de ellas.</p><p style="text-align:right">— Ángel</p></section>
+</section></main>
+<script src="../../js/state.js"></script><script src="../../js/special-events.js"></script><script>
+const target=new Date(NayeSpecial.birthday.date),now=new Date();
+if(now>=target){
+  locked.classList.add('hidden');content.classList.remove('hidden');
+  const s=NayeOS.ensure();if(!s.achievements.includes('Cumple de Naye 2026'))NayeOS.awardXP(30,'Cumple de Naye 2026');
+}else{
+  const d=Math.ceil((target-now)/86400000);counter.textContent=d===1?'Falta 1 día.':'Faltan '+d+' días.';
+}
+</script></body></html>

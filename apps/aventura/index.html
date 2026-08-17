@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aventura 21.08 · Naye OS</title><style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;padding:70px 18px 40px;background:linear-gradient(180deg,#bdddd7,#e5efe6 48%,#f4e2cb);font-family:system-ui;color:#3f554f}.back{position:fixed;top:14px;left:14px;text-decoration:none;color:#49635b;background:#fff9;padding:9px 12px;border-radius:999px}.wrap{width:min(94vw,720px);margin:auto}.panel{background:#fffdf9c9;border-radius:25px;padding:24px;box-shadow:0 18px 50px #48665b1d;text-align:center}.mountain{font-size:5rem}.route{display:grid;gap:12px;margin-top:18px}.stop{padding:18px;border-radius:20px;background:#fff9;text-align:left}.stop span{font-size:1.6rem}.stop b{display:block;margin:5px 0}.stop p{margin:0;color:#6e847c;line-height:1.5}.locked{margin-top:25vh}.hidden{display:none}
+</style></head><body>
+<a class="back" href="../../index.html">← Naye OS</a><main class="wrap">
+<section id="locked" class="panel locked"><div class="mountain">🔒🏔️</div><h1>Aventura 21.08</h1><p>Este archivo permanece bloqueado hasta el viernes 21 de agosto.</p><p id="counter"></p></section>
+<section id="content" class="hidden">
+<div class="panel"><div class="mountain">🏔️</div><small>ARCHIVO DE VIAJE DESBLOQUEADO</small><h1>Aventura 21.08</h1><p>Destino detectado: <b>Mazamitla</b>. Objetivo oficial: pasarla increíble por tu cumpleaños.</p></div>
+<div class="route">
+<article class="stop"><span>🌲</span><b>Modo montaña activado</b><p>Regla del sistema: disfrutar el lugar sin estar viendo el reloj.</p></article>
+<article class="stop"><span>📸</span><b>Misión secundaria</b><p>Guardar al menos una foto que valga la pena poner después en Recuerdos.</p></article>
+<article class="stop"><span>☕</span><b>Parada recomendada</b><p>Algo rico, una bebida caliente y tiempo para platicar.</p></article>
+<article class="stop"><span>✨</span><b>Evento desconocido</b><p>Naye OS detecta que este viaje podría guardar un recuerdo bastante importante. Los detalles no están disponibles en esta versión.</p></article>
+</div>
+</section></main>
+<script src="../../js/state.js"></script><script src="../../js/special-events.js"></script><script>
+const target=new Date(NayeSpecial.adventureUnlock),now=new Date();
+if(now>=target){
+ locked.classList.add('hidden');content.classList.remove('hidden');
+ const s=NayeOS.ensure();if(!s.achievements.includes('Aventura 21.08'))NayeOS.awardXP(25,'Aventura 21.08');
+}else{
+ const d=Math.ceil((target-now)/86400000);counter.textContent=d===1?'Falta 1 día.':'Faltan '+d+' días.';
+}
+</script></body></html>
