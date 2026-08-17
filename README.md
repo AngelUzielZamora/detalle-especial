@@ -67,3 +67,8 @@ Al activarse:
 - Se dispara una celebración visual.
 - Se desbloquea el logro `Nueva etapa desbloqueada`.
 - Las funciones de Birthday Update y todas las apps anteriores permanecen intactas.
+
+## Correcciones incluidas antes del despliegue
+- Terminal: Enter físico + botón Ejecutar + comandos rápidos + foco móvil.
+- Tienda: renderizado robusto, monedas visibles, compra/aplicación de temas y persistencia local.
+- Se conserva `relationshipUpdate: false` como único switch de la futura 3.0.

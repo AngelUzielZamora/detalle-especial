@@ -1,3 +1,146 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Terminal</title><style>
-*{box-sizing:border-box}body{margin:0;min-height:100vh;padding:70px 18px 35px;background:linear-gradient(145deg,#fff2f6,#eee8fa);font-family:system-ui;color:#58434d}.back{position:fixed;top:14px;left:14px;text-decoration:none;color:#765865;background:#fff9;padding:9px 12px;border-radius:999px;z-index:10}main{width:min(94vw,720px);margin:auto}.term{min-height:360px;background:#07110b;color:#c8f2da;border-radius:14px;padding:16px;font-family:Consolas}.row{display:flex;gap:8px;background:#07110b;color:#7cdaa8;padding:12px;border-radius:10px;margin-top:8px}.row input{flex:1;border:0;background:transparent;color:white;font:inherit;outline:none}
-</style></head><body><a class="back" href="../../index.html">← Naye OS</a><main><h1>Terminal de Ángel 💻</h1><div class="term" id="screen"><p>Escribe <b>help</b> para empezar.</p></div><div class="row"><span>naye@os:~$</span><input id="cmd"></div></main><script src="../../js/state.js"></script><script>const r={help:'Comandos: help, status, angel, naye, hug, future, love, date, secret',status:'Sistema estable. Ángel: ligeramente distraído.',angel:'Desarrollador principal. Bug conocido: piensa demasiado en Naye.',naye:'Usuaria administradora. Permisos: todos.',hug:'Solicitud de abrazo registrada 🤗',future:'Todavía faltan muchos planes por hacer.',love:'♡♡♡',date:'Sugerencia: comida rica + plática + cero prisas.',secret:'Pista: toca cinco veces la N en el inicio.'};cmd.onkeydown=e=>{if(e.key==='Enter'){let v=cmd.value.trim().toLowerCase();screen.innerHTML+='<p><b>$ '+v+'</b><br>'+(r[v]||'Comando no reconocido.')+'</p>';cmd.value=''}}</script></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Terminal de Ángel · Naye OS</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;min-height:100vh;padding:70px 16px 35px;
+  background:linear-gradient(180deg,#07110b,#031008);
+  color:#c8f2da;font-family:Consolas,"Courier New",monospace
+}
+.back{
+  position:fixed;top:14px;left:14px;text-decoration:none;color:#d7f5e6;
+  background:#143024;padding:9px 12px;border-radius:999px;z-index:10
+}
+.wrap{width:min(96vw,780px);margin:auto}
+h1{font-family:system-ui;margin-bottom:6px}
+.sub{color:#79a991;margin-top:0}
+.term{
+  min-height:390px;max-height:58vh;overflow:auto;
+  background:#020905;border:1px solid #1d5a3d;border-radius:14px;
+  padding:16px;box-shadow:0 20px 60px #0008;line-height:1.55
+}
+.term .muted{color:#6da987}
+.term .prompt{color:#63d397;font-weight:700}
+.term .answer{color:#d9ffea;margin:4px 0 12px}
+.inputrow{
+  display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center;
+  margin-top:10px;padding:10px 11px;border:1px solid #15472f;border-radius:12px;background:#07110b
+}
+.inputrow span{color:#63d397;font-size:.85rem}
+.inputrow input{
+  min-width:0;border:0;background:transparent;color:#ecfff3;outline:none;
+  font:inherit;padding:8px 2px
+}
+.inputrow button{
+  border:0;border-radius:10px;background:#63d397;color:#072014;
+  padding:10px 13px;font-weight:900;cursor:pointer
+}
+.quick{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+.quick button{
+  border:1px solid #1d5a3d;background:#0b2418;color:#aee7c9;
+  border-radius:999px;padding:7px 10px;font-family:inherit;cursor:pointer
+}
+.note{font-size:.75rem;color:#6da987;margin-top:10px}
+@media(max-width:520px){
+  .inputrow{grid-template-columns:1fr auto}
+  .inputrow span{grid-column:1/3}
+}
+</style>
+</head>
+<body>
+<a class="back" href="../../index.html">← Naye OS</a>
+<main class="wrap">
+  <h1>Terminal de Ángel 💻</h1>
+  <p class="sub">Escribe un comando y presiona Enter o “Ejecutar”.</p>
+
+  <section id="screen" class="term" aria-live="polite">
+    <div>Conexión establecida.</div>
+    <div class="muted">Escribe <b>help</b> para ver los comandos disponibles.</div>
+  </section>
+
+  <div class="inputrow">
+    <span>naye@os:~$</span>
+    <input id="cmd" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="help">
+    <button id="run" type="button">Ejecutar</button>
+  </div>
+
+  <div class="quick">
+    <button data-cmd="help">help</button>
+    <button data-cmd="status">status</button>
+    <button data-cmd="naye">naye</button>
+    <button data-cmd="angel">angel</button>
+    <button data-cmd="hug">hug</button>
+  </div>
+  <p class="note">Tip: también puedes tocar los comandos rápidos.</p>
+</main>
+
+<script src="../../js/state.js"></script>
+<script>
+const screen = document.getElementById('screen');
+const cmd = document.getElementById('cmd');
+const run = document.getElementById('run');
+
+const replies = {
+  help: 'Comandos: help, status, angel, naye, hug, future, love, date, secret, clear',
+  status: 'Sistema estable. Ángel: ligeramente distraído.',
+  angel: 'Desarrollador principal. Bug conocido: piensa demasiado en Naye.',
+  naye: 'Usuaria administradora. Permisos: todos. Nivel de ternura: crítico.',
+  hug: 'Solicitud registrada. Tiempo estimado de entrega: en cuanto sea posible 🤗',
+  future: 'Predicción: todavía faltan muchos planes por hacer.',
+  love: 'Respuesta del sistema: ♡♡♡',
+  date: 'Sugerencia: comida rica + plática + cero prisas.',
+  secret: 'Pista: toca cinco veces la N en el inicio.'
+};
+
+function line(html, cls=''){
+  const div=document.createElement('div');
+  if(cls) div.className=cls;
+  div.innerHTML=html;
+  screen.appendChild(div);
+  screen.scrollTop=screen.scrollHeight;
+}
+
+function execute(raw){
+  const value=(raw ?? cmd.value).trim();
+  if(!value) return;
+  const v=value.toLowerCase();
+
+  line('<span class="prompt">naye@os:~$</span> '+value.replace(/</g,'&lt;'));
+
+  if(v==='clear'){
+    screen.innerHTML='';
+  }else{
+    line(replies[v] || 'Comando no reconocido. Prueba <b>help</b>.','answer');
+  }
+
+  if(v==='help'){
+    try{
+      const s=NayeOS.ensure();
+      if(!s.achievements.includes('Primera terminal')){
+        NayeOS.awardXP(10,'Primera terminal');
+      }
+    }catch(e){}
+  }
+
+  cmd.value='';
+  cmd.focus();
+}
+
+run.addEventListener('click',()=>execute());
+cmd.addEventListener('keydown',e=>{
+  if(e.key==='Enter'){
+    e.preventDefault();
+    execute();
+  }
+});
+document.querySelectorAll('[data-cmd]').forEach(b=>{
+  b.addEventListener('click',()=>execute(b.dataset.cmd));
+});
+cmd.focus();
+</script>
+</body>
+</html>

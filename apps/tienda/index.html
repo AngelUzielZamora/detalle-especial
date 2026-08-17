@@ -1,3 +1,145 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tienda</title><style>
-*{box-sizing:border-box}body{margin:0;min-height:100vh;padding:70px 18px 35px;background:linear-gradient(145deg,#fff2f6,#eee8fa);font-family:system-ui;color:#58434d}.back{position:fixed;top:14px;left:14px;text-decoration:none;color:#765865;background:#fff9;padding:9px 12px;border-radius:999px;z-index:10}main{width:min(94vw,720px);margin:auto}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.item{padding:18px;border-radius:18px;background:#fff9;text-align:center}.item button{border:0;border-radius:999px;padding:9px 14px;background:#ad88d8;color:white;font-weight:800}.owned{opacity:.7}@media(max-width:520px){.grid{grid-template-columns:1fr}}
-</style></head><body><a class="back" href="../../index.html">← Naye OS</a><main><h1>Tienda de Naye OS 🏪</h1><p>Tus monedas: <b id="coins"></b> 🪙</p><section id="items" class="grid"></section></main><script src="../../js/state.js"></script><script>let s=NayeOS.ensure();coins.textContent=s.coins;const items=[['🌙','Tema Noche','noche',5],['💜','Tema Lavanda','lavanda',5],['🎮','Tema Pixel','pixel',7],['🌸','Tema Rosa','rosa',0]];let owned=JSON.parse(localStorage.getItem('nayeOwnedThemes')||'["rosa"]');items.forEach(x=>{let has=owned.includes(x[2]),d=document.createElement('div');d.className='item '+(has?'owned':'');d.innerHTML='<h2>'+x[0]+'</h2><h3>'+x[1]+'</h3><p>'+x[3]+' 🪙</p><button>'+(has?'Usar':'Comprar')+'</button>';d.querySelector('button').onclick=()=>{s=NayeOS.ensure();if(!has){if(s.coins<x[3])return alert('No hay suficientes monedas 👀');s.coins-=x[3];NayeOS.save(s);owned.push(x[2]);localStorage.setItem('nayeOwnedThemes',JSON.stringify(owned));}s=NayeOS.ensure();s.theme=x[2];NayeOS.save(s);alert('Tema aplicado ♡');location.reload()};items.appendChild(d)});</script></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Tienda · Naye OS</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;min-height:100vh;padding:70px 16px 38px;
+  background:linear-gradient(145deg,#fff1f6,#eee8fa);
+  font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#58434d
+}
+.back{
+  position:fixed;top:14px;left:14px;text-decoration:none;color:#765865;
+  background:#fff9;padding:9px 12px;border-radius:999px;z-index:10
+}
+.wrap{width:min(96vw,760px);margin:auto}
+.top{
+  display:flex;justify-content:space-between;gap:15px;align-items:center;
+  padding:18px;border-radius:22px;background:#fff9;margin-bottom:16px
+}
+.wallet{padding:10px 14px;border-radius:999px;background:#fff0c7;font-weight:900;white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
+.item{
+  position:relative;padding:20px;border-radius:21px;background:#fff9;
+  border:1px solid #fff;box-shadow:0 12px 32px #74526714;text-align:center
+}
+.item .preview{
+  width:72px;height:72px;border-radius:22px;margin:0 auto 11px;
+  display:grid;place-items:center;font-size:2.1rem;box-shadow:0 10px 25px #7452671a
+}
+.item h3{margin:4px 0}.item p{margin:6px 0 14px;color:#917682;font-size:.85rem}
+.item button{
+  border:0;border-radius:999px;padding:10px 15px;background:#ad88d8;
+  color:white;font-weight:850;cursor:pointer
+}
+.item button.secondary{background:#e4d5ea;color:#725d7d}
+.item.active{outline:2px solid #b88ad1}
+.item.owned:after{
+  content:"COMPRADO";position:absolute;right:10px;top:10px;font-size:.55rem;
+  font-weight:900;letter-spacing:.08em;color:#a06d86
+}
+.rosa{background:linear-gradient(145deg,#ffd7e3,#e8add0)}
+.noche{background:linear-gradient(145deg,#24213e,#171727);color:white}
+.lavanda{background:linear-gradient(145deg,#ded0ff,#c5a9ea)}
+.pixel{background:linear-gradient(145deg,#dff1d4,#b5d7ff)}
+.info{margin-top:16px;padding:14px;border-radius:18px;background:#fff8;color:#8c7280;font-size:.82rem}
+@media(max-width:520px){.grid{grid-template-columns:1fr}.top{align-items:flex-start}}
+</style>
+</head>
+<body>
+<a class="back" href="../../index.html">← Naye OS</a>
+<main class="wrap">
+  <section class="top">
+    <div>
+      <small>TIENDA DE NAYE OS</small>
+      <h1>Temas y extras 🏪</h1>
+      <p>Compra con las monedas que ganas usando el sistema.</p>
+    </div>
+    <div class="wallet"><span id="coins">0</span> 🪙</div>
+  </section>
+
+  <section id="items" class="grid"></section>
+  <div class="info">Las compras y el tema elegido se guardan únicamente en este navegador.</div>
+</main>
+
+<script src="../../js/state.js"></script>
+<script>
+const itemsBox=document.getElementById('items');
+const coinsBox=document.getElementById('coins');
+
+const products=[
+  {icon:'🌸',name:'Tema Rosa',key:'rosa',price:0,desc:'El estilo original de Naye OS.',preview:'rosa'},
+  {icon:'🌙',name:'Tema Noche',key:'noche',price:5,desc:'Oscuro, tranquilo y con brillitos.',preview:'noche'},
+  {icon:'💜',name:'Tema Lavanda',key:'lavanda',price:5,desc:'Lavanda suave para variar un poquito.',preview:'lavanda'},
+  {icon:'🎮',name:'Tema Pixel',key:'pixel',price:7,desc:'Una versión más juguetona del sistema.',preview:'pixel'}
+];
+
+function getOwned(){
+  try{
+    const raw=JSON.parse(localStorage.getItem('nayeOwnedThemes')||'["rosa"]');
+    return Array.isArray(raw)?raw:['rosa'];
+  }catch(e){ return ['rosa']; }
+}
+function setOwned(v){localStorage.setItem('nayeOwnedThemes',JSON.stringify(v))}
+
+function render(){
+  let s=NayeOS.ensure();
+  let owned=getOwned();
+  if(!owned.includes('rosa')){owned.unshift('rosa');setOwned(owned)}
+  coinsBox.textContent=s.coins||0;
+  itemsBox.innerHTML='';
+
+  products.forEach(p=>{
+    const has=owned.includes(p.key);
+    const active=(s.theme||'rosa')===p.key;
+    const card=document.createElement('article');
+    card.className='item '+(has?'owned ':'')+(active?'active':'');
+    card.innerHTML=`
+      <div class="preview ${p.preview}">${p.icon}</div>
+      <h3>${p.name}</h3>
+      <p>${p.desc}</p>
+      <strong>${p.price===0?'Gratis':p.price+' 🪙'}</strong><br><br>
+      <button type="button">${active?'En uso':has?'Usar':'Comprar'}</button>
+    `;
+
+    const btn=card.querySelector('button');
+    if(active){
+      btn.disabled=true;
+      btn.classList.add('secondary');
+    }else{
+      btn.addEventListener('click',()=>{
+        s=NayeOS.ensure();
+        owned=getOwned();
+
+        if(!owned.includes(p.key)){
+          if((s.coins||0)<p.price){
+            alert('Todavía no tienes suficientes monedas 👀');
+            return;
+          }
+          s.coins-=p.price;
+          owned.push(p.key);
+          setOwned(owned);
+        }
+
+        s.theme=p.key;
+        NayeOS.save(s);
+        alert('Tema aplicado ♡');
+        render();
+      });
+    }
+
+    itemsBox.appendChild(card);
+  });
+}
+
+try{
+  render();
+}catch(err){
+  itemsBox.innerHTML='<article class="item"><h3>No se pudo cargar la tienda</h3><p>'+String(err)+'</p></article>';
+}
+</script>
+</body>
+</html>
